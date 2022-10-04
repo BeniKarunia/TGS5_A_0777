@@ -20,5 +20,9 @@ class Pegawai extends Model
         'tanggal_bergabung',
         'status',
         ];
+    
+        public function departemen(){
+            return $this->belongsTo(Departemen::class,'id_departemen','id');
+        }
 }
     

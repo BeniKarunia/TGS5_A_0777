@@ -51,7 +51,7 @@
             <td class="text-center">{{
                 $item->nama_pegawai }}</td>
                 <td class="text-center">{{
-                    $item->id_departemen == '1' ? 'Cleaning Service' : 'Maintenance' }}</td>
+                    $item->departemen -> nama_departemen }}</td>
                     <td class="text-center">{{
                         $item->email }}</td>
                         <td class="text-center">{{
@@ -59,7 +59,7 @@
                             <td class="text-center">{{
                                 $item->gender == '1' ? 'Laki-Laki' : 'Perempuan' }}</td>
                                 <td class="text-center">{{
-                                    $item->tanggal_bergabung }}</td>
+                                    \Carbon\Carbon::parse($item->tanggal_bergabung)->translatedFormat('d F Y') }}</td>
                                     <td class="text-center">{{
                                         $item->status == '1' ? 'Aktif' : 'Tidak Aktif' }}</td>
                 </tr>
