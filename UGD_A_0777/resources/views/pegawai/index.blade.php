@@ -29,18 +29,20 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                    <a href="{{ route('pegawai.create') }}" class="btn btn-md btn-success mb-3">TAMBAH PEGAWAI</a>
                         <div class="table-responsive p-0">
                             <table class="table table-hover textnowrap">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Nomor Induk Pegawai</th>
+                                        <th class="text-center">NIP</th>
                                         <th class="text-center">Nama Pegawai</th>
-                                        <th class="text-center">ID Departemen</th>
+                                        <th class="text-center">Departemen</th>
                                         <th class="text-center">Email</th>
                                         <th class="text-center">Telepon</th>
                                         <th class="text-center">Gender</th>
                                         <th class="text-center">Masuk Pada</th>
                                         <th class="text-center">Status</th>
+                                        <th class="text-center">Aksi</th>
 </tr>
 </thead>
 <tbody>
@@ -62,6 +64,16 @@
                                     \Carbon\Carbon::parse($item->tanggal_bergabung)->translatedFormat('d F Y') }}</td>
                                     <td class="text-center">{{
                                         $item->status == '1' ? 'Aktif' : 'Tidak Aktif' }}</td>
+                                        <td class="text-center">
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                action="{{ route('pegawai.destroy', $item->id) }}" method="POST">
+                                                <a href="{{ route('pegawai.edit', $item->id) }}"
+                                                    class="btn btn-sm btn-primary">EDIT</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                            </form>
+                                        </td>
                 </tr>
                 @empty
                 <div class="alert alert-danger">
