@@ -68,12 +68,12 @@ class GolonganController extends Controller
         
         //Fungsi Simpan Data ke dalam Database 
         Golongan::create([ 
-        'nama_golongan' = $request->nama_golongan,
-       'pegawai_id' = $request->pegawai_id,
-        'gaji_pokok' = $request->gaji_pokok,
-        'tunjangan_keluarga' = $request->tunjangan_keluarga,
-        'tunjangan_transport' = $request->tunjangan_transport,
-        'tunjangan_makan' = $request->tunjangan_makan,
+        'nama_golongan' => $request->nama_golongan,
+       'pegawai_id' => $request->pegawai_id,
+        'gaji_pokok' => $request->gaji_pokok,
+        'tunjangan_keluarga' => $request->tunjangan_keluarga,
+        'tunjangan_transport' => $request->tunjangan_transport,
+        'tunjangan_makan' => $request->tunjangan_makan,
         ]); 
         
         try{ 
