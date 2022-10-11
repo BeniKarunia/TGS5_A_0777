@@ -29,6 +29,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
+                        <a href="{{ route('golongan.create') }}" class="btn btn-md btn-success mb-3">TAMBAH GOLONGAN</a>
                         <div class="table-responsive p-0">
                             <table class="table table-hover textnowrap">
                                 <thead>
@@ -39,6 +40,7 @@
                                         <th class="text-center">Tunjangan Keluarga</th>
                                         <th class="text-center">Tunjangan Transport</th>
                                         <th class="text-center">Tunjangan Makan</th>
+                                        <th class="text-center">Aksi</th>
 </tr>
 </thead>
 <tbody>
@@ -56,6 +58,16 @@
                             @currency($item->tunjangan_transport)</td>
                             <td class="text-center">
                                 @currency($item->tunjangan_makan)</td>
+                                <td class="text-center">
+                                            <form onsubmit="return confirm('Apakah Anda Yakin ?');"
+                                                action="{{ route('golongan.destroy', $item->id) }}" method="POST">
+                                                <a href="{{ route('golongan.edit', $item->id) }}"
+                                                    class="btn btn-sm btn-primary">EDIT</a>
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-sm btn-danger">Hapus</button>
+                                            </form>
+                                        </td>
                                 
                 </tr>
                 @empty
