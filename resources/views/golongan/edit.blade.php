@@ -5,13 +5,13 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0">Edit Departemen</h1>
+                <h1 class="m-0">Edit Golongan</h1>
             </div>
             <!-- /.col -->
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item">
-                        <a href="#">Departemen</a>
+                        <a href="#">Golongan</a>
                     </li>
                     <li class="breadcrumb-item active">Edit</li>
                 </ol>
@@ -26,7 +26,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('departemen.update', $departemen->id) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('golongan.update', $golongan->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="form-row">
